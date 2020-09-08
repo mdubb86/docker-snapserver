@@ -1,9 +1,10 @@
 #!/usr/bin/with-contenv /bin/bash
 echo 'Starting snapserver'
-echo '[stream]' > /snapserver.conf
+echo '[stream]' > /etc/snapserver.conf
 for var in ${!stream*}
 do
-  echo "source = ${!var}" >> /snapserver.conf
+  echo "source = ${!var}" >> /etc/snapserver.conf
 done
 echo "Configuration:"
 cat /etc/snapserver.conf
+exec snapserver
