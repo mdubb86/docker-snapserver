@@ -1,12 +1,13 @@
 #!/usr/bin/with-contenv /bin/bash
 echo 'Starting snapserver'
-echo '[stream]' > /snapserver.conf
+args=""
 for var in ${!stream*}
 do
-  echo "source = ${!var}" >> /snapserver.conf
+  args+="-s ${!var} "
+  echo "${var}:${!var}"
 done
-echo "Configuration:"
-cat /snapserver.conf
-exec snapserver -c /snapserver.conf
-#exec snapserver -s pipe:///pipes/noise?name=Noise -s pipe:///pipes/music?name=Music
+echo "Args ${args}"
+exec snapserver ${args}
+
+#exec snapserver -s pipe:///pipes/noise?name=Noise -s pipe:///pipes/music?name=Music -http.doc_root=/snapweb-master/page/
 
