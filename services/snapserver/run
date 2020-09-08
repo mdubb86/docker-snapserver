@@ -3,8 +3,10 @@ echo 'Starting snapserver'
 echo '[stream]' > /etc/snapserver.conf
 for var in ${!stream*}
 do
-  echo "source = ${!var}" >> /etc/snapserver.conf
+  echo "stream = ${!var}" >> /etc/snapserver.conf
 done
+echo '[http]'  >> /etc/snapserver.conf
+echo 'doc_root=/snapweb-master/page' >> /etc/snapserver.conf
 echo "Configuration:"
 cat /etc/snapserver.conf
 exec snapserver
