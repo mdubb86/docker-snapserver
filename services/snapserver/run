@@ -6,7 +6,4 @@ do
   echo "source = ${!var}" >> /snapserver.conf
 done
 echo "Configuration:"
-cat /snapserver.conf
-exec snapserver -c /snapserver.conf
-#exec snapserver -s pipe:///pipes/noise?name=Noise -s pipe:///pipes/music?name=Music
-
+cat /etc/snapserver.conf

@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
   wget https://github.com/badaix/snapcast/releases/download/v${snapcast_version}/snapserver_${snapcast_version}-1_amd64.deb && \
   dpkg -i snapserver_${snapcast_version}-1_amd64.deb; \
   apt-get update && \
-  apt-get -f install -y
+  apt-get -f install -y && \
+  mv /etc/snapserver.conf /etc/snapserver.conf.orig
 
 # Set the entry point
 ENTRYPOINT ["/init"]
