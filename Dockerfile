@@ -5,7 +5,7 @@ ARG snapcast_version=0.20.0
 RUN apt-get update && apt-get install -y \
   wget && \
   wget https://github.com/badaix/snapcast/releases/download/v${snapcast_version}/snapserver_${snapcast_version}-1_amd64.deb && \
-  dpkg -i snapserver_${snapcast_version}_amd64.deb; \
+  dpkg -i snapserver_${snapcast_version}-1_amd64.deb; \
   apt-get update && \
   apt-get -f install -y
 
