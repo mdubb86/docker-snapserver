@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-ARG snapcast_version=0.11.1
+ARG snapcast_version=0.20.0
 
 RUN apt-get update && apt-get install -y \
   wget && \
@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
 ENTRYPOINT ["/init"]
 
 VOLUME /conf
+
+EXPOSE 1780
 
 # Install services
 COPY services /etc/services.d
