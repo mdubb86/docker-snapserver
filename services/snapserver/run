@@ -1,17 +1,16 @@
 #!/usr/bin/with-contenv /bin/sh
 echo 'Starting snapserver'
-echo '[stream]' > /etc/snapserver.conf
+echo '[stream]' > /root/.config/snapserver/snapserver.conf
 # for var in ${!stream*}
 # do
 #   echo "stream = ${!var}" >> /etc/snapserver.conf
 # done
 env | grep '^stream_' | cut -d= -f2- | while read -r stream; do 
-	echo "$stream";
-    echo "stream = ${stream}" >> /etc/snapserver.conf
+    echo "stream = ${stream}" >> /root/.config/snapserver/snapserver.conf 
 done
-echo '[http]' >> /etc/snapserver.conf
-echo 'doc_root=/snapweb-master/dist' >> /etc/snapserver.conf
+echo '[http]' >> /root/.config/snapserver/snapserver.conf 
+echo 'doc_root=/snapweb-master/dist' >> /root/.config/snapserver/snapserver.conf 
 echo "Configuration:"
-cat /etc/snapserver.conf
+cat /root/.config/snapserver/snapserver.conf
 exec snapserver
 
