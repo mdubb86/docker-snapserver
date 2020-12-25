@@ -5,7 +5,7 @@ echo '[stream]' > /etc/snapserver.conf
 # do
 #   echo "stream = ${!var}" >> /etc/snapserver.conf
 # done
-env | grep '^stream_' | cut -d= -f2- | while read -r stream; do 
+env | grep '^stream_' | sort | cut -d= -f2- | while read -r stream; do 
     echo "stream = ${stream}" >> /etc/snapserver.conf
 done
 echo '[http]' >> /etc/snapserver.conf
